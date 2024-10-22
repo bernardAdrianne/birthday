@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="picture.css">
+    <title>Memories</title>
+
+    <script>
+        window.onload = function() {
+            let currentImageIndex = 0;
+            const images = [
+                "/image/image1.jpg", 
+                "/image/image2.jpg",
+                "/image/image3.jpg",
+                "/image/image4.jpg",
+                "/image/image5.jpg",
+                "/image/image6.jpg",
+                "/image/image7.jpg",
+                "/image/image8.jpg",
+                "/image/image9.jpg",
+                "/image/image10.jpg",
+                "/image/image11.jpg",
+                "/image/image12.jpg",
+                "/image/image13.jpg",
+                "/image/image14.jpg",
+                "/image/image15.jpg",
+                "/image/image16.jpg",
+                "/image/image17.jpg",
+                "/image/vid1.mp4",
+                "/image/vid2.mp4"
+            ];
+            const sliderImage = document.getElementById('slider-image');
+            const nextButton = document.getElementById('next');
+            const prevButton = document.getElementById('prev');
+
+            function updateImage() {
+                if (images[currentImageIndex].endsWith('.mp4')) {
+                     sliderImage.style.display = 'none';
+                     document.getElementById('slider-video').style.display = 'block';
+                     document.getElementById('slider-video').src = images[currentImageIndex];
+                } else {
+                     sliderImage.src = images[currentImageIndex];
+                     sliderImage.style.display = 'block';
+                     document.getElementById('slider-video').style.display = 'none';
+    }
+}
+
+            nextButton.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateImage();
+            });
+
+            prevButton.addEventListener('click', () => {
+                currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+                updateImage();
+            });
+        };
+
+        function picturesBackbutton() {
+            window.location.href = '/page2/page2.html';  
+        }  
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pictures</h1>
+        <div class="image-frame">
+            <img id="slider-image" src="/image/image1.jpg" class="image">
+            <video id="slider-video" width="400" height="300" controls lopp style="display: none;">
+                <source src="/image/vid1.mp4" type="video/mp4">
+                <source src="/image/vid2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="buttons">
+            <button id="prev" class="nav-btn">Previous</button>
+            <button id="next" class="nav-btn">Next</button>
+        </div>
+    </div>
+    <button class="back-button" onclick="picturesBackbutton()">Back</button>
+
+</body>
+</html>

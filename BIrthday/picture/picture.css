@@ -1,0 +1,80 @@
+body {
+    font-family: "Comic Neue";
+    background-color: #EACCF6;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 48px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.image-frame {
+    background-color: #d9e7ce;
+    width: 400px;
+    height: 300px;
+    border: 3px solid #333;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #ffcc33;
+    border: solid 2px #333;
+    color: #333;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+    background-color: #FCA510;
+}
+
+button {
+    background-color: #ffcc33;
+    border: 2px solid #333;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    background-color: #FCA510;
+}
+
+.back-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}

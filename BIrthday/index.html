@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Birthday Surprise</title>
+</head>
+<body>
+ 
+    <h2>Enter the passcode</h2>
+
+    <div class="screen" id="screen"></div>
+
+    <div class="container">
+
+        <img src="image/passcode.jpg" alt="passcode">
+        
+        <div class="buttons">
+            <div class="col1">
+                <button onclick="addToScreen('9')">9</button>
+                <button onclick="addToScreen('  8')">8</button>
+                <button onclick="addToScreen('7')">7</button>
+            </div>
+            <div class="col2">
+                <button onclick="addToScreen('6')">6</button>
+                <button onclick="addToScreen('5')">5</button>
+                <button onclick="addToScreen('4')">4</button> 
+            </div>
+            <div class="col3">
+                <button onclick="addToScreen('3')">3</button>
+                <button onclick="addToScreen('2')">2</button>
+                <button onclick="addToScreen('1')">1</button>
+            </div>
+
+            <button onclick="submitPasscode()" class="enter-button">Enter</button>
+        </div>
+
+    </div>
+
+    <script src="function.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="song.css">
+    <title>Gamess</title>
+
+    <script>
+        function songBackButton() {
+            window.location.href = '/page2/page2.html'; 
+        } 
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const lyricsContainer = document.getElementById('lyrics-container');
+            const lines = [
+                "BLUE SKY - HALE",                             // 1
+                "When do stars fade their light",              // 2
+                "Does the moon and sun make it right for you?",// 3
+                "The world may be, like an endless storm",     // 4
+                "Chasing a mystery",                           // 5
+                "Is there hate in your heart?",                // 6
+                "Does your body drop and tell you to stop",    // 7
+                "Loving you, loving me",                       // 8
+                "When it falls down, you just sing with me",   // 9
+                "Cause there's a blue sky, waiting tomorrow,", // 10
+                "Waiting tomorrow, shining and shimmering",    // 11
+                "A blue sky waiting tomorrow",                 // 12
+                "Waiting tomorrow",                            // 13
+                "Maybe it's all we need",                      // 14 
+                "Oh, don't you wash away that smile",          // 15
+                "You just look out the window and see the light",  // 16
+                "It's beautiful to be alive",                  // 17
+                "It's wonderful to live a life",               // 18
+                "The sun is sure to shine",                    // 19
+                "For you and me, for everyone",                // 20
+                "So don't be sad, it's just the start",        // 21
+                "Of a new beginning in your life",             // 22
+                "A blue sky waiting tomorrow,",                // 23
+                "Waiting tomorrow, shining and shimmering",    // 24
+                "A blue sky waiting tomorrow,",                // 25
+                "Waiting tomorrow",                            // 26
+                "Maybe it's all we need",                      // 27
+                "Rain will keep on pouring",                   // 28
+                "Some things you can't control",               // 29
+                "While the sun seems far and hard to hold",    // 30
+                "It will unfold",                              // 31
+                "There will always be a blue sky",             // 32
+                "A blue sky waiting tomorrow, Full of hope, yeah...",     // 33
+                                                               // 34
+                "Full of hope, yeah...",                       // 35
+                "Cause there's a blue sky waiting tomorrow,",  // 36
+                "Waiting tomorrow, shining and shimmering",    // 37
+                "A blue sky waiting tomorrow,",                // 38
+                "Waiting tomorrow",                            // 39
+                "Maybe it's all we need",                      // 40
+            ];
+                               // 1     2      3     4      5     6     7     8     9     10    11    12    13    14    15    16    17    18    19    20    21    22    23    24    25    26    27    28    29    30    31      32   33     35    36    37    38    39     40
+            const charDelays = [100,   150,   150,  150,   120,  150,  130,  140,  130,  100,  100,  100,  100,  100,   60,   40,   50,   80,   80,   70,   70,   60,  70,   100,  100,  80,   80,   90,   80,   100,   150,   100,  60,    60,   60,  80,   80,   90,  100, 100];
+
+            const lineDelays = [29800, 2300, 2000, 2000, 13000, 2000, 1800, 1900, 1700, 1600, 1600, 1600, 1600, 1300, 1000, 1000, 1400,  1200, 1100, 800, 1300, 1600, 2900, 3200, 2400, 1900, 2400, 3400, 3700, 4600,  6700,   600, 5500, 5000, 3300, 4000, 2000, 2000, 1500, 2000];
+
+            async function displayLyrics() {
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i];
+                    await displayLine(line, lineDelays[i], charDelays[i]);
+                }
+            }
+
+            async function displayLine(line, delay, charDelay) {
+                lyricsContainer.innerHTML = '';
+
+                for (let char of line) {
+                    lyricsContainer.innerHTML += char;
+                    await sleep(charDelay);
+                }
+                
+                await sleep(delay); 
+            }
+
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+
+            displayLyrics();
+        });
+    </script>
+    
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="/song/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="lyrics-container" id="lyrics-container"></div> 
+
+    <button class="back-button" onclick="songBackButton()">Back</button>
+    
+</body>
+</html>
